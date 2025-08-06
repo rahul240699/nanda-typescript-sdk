@@ -1,0 +1,27 @@
+
+---
+- name: Setup Internet of Agents
+  hosts: servers
+  become: true
+  vars:
+    cert_path: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
+    key_path: "/etc/letsencrypt/live/{{ domain_name }}/privkey.pem"
+    venv_path: "/opt/internet_of_agents/venv"
+
+  tasks:
+    - name: Gather system information
+      setup:
+        gather_subset:
+          - '!all'
+          - '!min'
+          - distribution
+          - distribution_major_version
+          - os_family
+    # ... [full task list as provided by the user] ...
+    - name: Display agent link
+      debug:
+        msg: |
+          ===================================================
+          Your agent is now ready! Access...
+      no_log: false
+
