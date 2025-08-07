@@ -1,5 +1,7 @@
 # Project NANDA Typescript SDK
 
+The **NANDA Typescript SDK Node** package is a TypeScript-first SDK and CLI for the NANDA Base Agent. It provides a simple, type-safe API to spin up, manage, and communicate with your agents, plus an Ansible-driven server provisioning workflow. Use it to embed AI assistants in web apps, serverless functions, Node.js microservices, or custom CLI tools—all with zero boilerplate and full end-to-end automation.
+
 ## Pre-requisites
 
 ```bash
@@ -8,7 +10,6 @@
 sudo apt update && sudo apt install -y nodejs npm git ansible
 # RHEL/CentOS/Fedora (Amazon Linux):
 sudo yum install -y nodejs npm git ansible
-sudo amazon-linux-extras enable ansible2
 
 # Install the NANDA SDK globally
 git clone https://github.com/rahul240699/nanda-typescript-sdk.git
@@ -27,22 +28,27 @@ chmod +x ./dist/index.js
 nanda-sdk --help
 ```
 
-## Quickstart
+## Verify Installation
 
-**Install**
+After setup completes, verify your agent is running:
 
 ```bash
-npm install @rahul240699/nanda-typescript-sdk
+# Check service status
+systemctl status internet_of_agents
+
+# View logs
+journalctl -u internet_of_agents -f
+
+# list of servers
+ps aux | grep run_ui_agent_https
 ```
 
-**CLI usage**
+Your agent will be:
 
-```bash
-nanda-sdk \
-  --anthropic-key <YOUR_ANTHROPIC_API_KEY> \
-  --domain <myapp.example.com> \
-  --num-agents 1 \
-  --verbose
+-   Running as a systemd service
+-   Accessible at your specified domain
+-   Automatically starting on server reboot
+
 ```
 
 ## Ansible playbook
@@ -52,3 +58,4 @@ The `ansible/playbook.yml` provisions servers: Python, git, nginx, certbot, clon
 ## Templates
 
 Systemd unit in `ansible/templates/internet_of_agents.service.j2` manages the agent service.
+```
