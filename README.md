@@ -1,5 +1,21 @@
 # Project NANDA Typescript SDK
 
+## Pre-requisites
+
+```bash
+# SSH into the servers
+# Ubuntu/Debian:
+sudo apt update && sudo apt install -y nodejs npm
+# RHEL/CentOS/Fedora (Amazon Linux):
+sudo yum install -y nodejs npm
+
+# Install the NANDA SDK globally
+npm install -g @rahul240699/nanda-typescript-sdk
+
+# Verify CLI is registered
+nanda-sdk --help
+```
+
 ## Quickstart
 
 **Install**
@@ -12,16 +28,10 @@ npm install @rahul240699/nanda-typescript-sdk
 
 ```bash
 nanda-sdk \
-  --anthropic-key $ANTHROPIC_API_KEY \
-  --domain example.com \
-  --num-agents 2 \
+  --anthropic-key <YOUR_ANTHROPIC_API_KEY> \
+  --domain <myapp.example.com> \
+  --num-agents 1 \
   --verbose
-```
-
-**SDK import**
-
-```ts
-import { NandaSdk } from "@projnanda/nanda-typescript-sdk";
 ```
 
 ## Ansible playbook
