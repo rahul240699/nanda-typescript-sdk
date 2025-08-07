@@ -7,10 +7,18 @@
 # Ubuntu/Debian:
 sudo apt update && sudo apt install -y nodejs npm
 # RHEL/CentOS/Fedora (Amazon Linux):
-sudo yum install -y nodejs npm
+sudo yum install -y nodejs npm git
 
 # Install the NANDA SDK globally
-npm install -g @rahul240699/nanda-typescript-sdk
+git clone https://github.com/rahul240699/nanda-typescript-sdk.git
+
+cd nanda-typescript-sdk
+
+npm install
+
+npm run build
+
+sudo npm link         # registers the `bin` from package.json globally
 
 # Verify CLI is registered
 nanda-sdk --help

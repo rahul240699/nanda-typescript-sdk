@@ -1,18 +1,21 @@
+#!/usr/bin/env node
+
 export interface NandaConfig {
-    apiKey: string;
-    baseUrl?: string;
-    timeoutMs?: number;
+    domain: string;
+    numAgents: number;
+    registryUrl: string;
+    agentId?: number;
 }
-export declare class NandaAgent {
-    private config;
-    private client;
+
+export declare class NandaSdk {
     constructor(config: NandaConfig);
-    /**
-     * Simple health-check / ping
-     */
-    ping(): Promise<boolean>;
-    /**
-     * Send a prompt to a named agent
-     */
-    send(agentId: string, prompt: string): Promise<string>;
+    private generateAgentId;
+    getPublicIp(): Promise<string>;
+    createAnsibleInventory(): Promise<string>;
+    executeCommand(cmd: string): Promise<{ stdout: string; stderr: string }>;
+    setupServer(anthropicKey: string, smitheryKey: string, verbose?: boolean): Promise<boolean>;
+    setup(anthropicKey: string, smitheryKey: string, verbose?: boolean): Promise<boolean>;
 }
+
+declare const _default: void;
+export default _default;
