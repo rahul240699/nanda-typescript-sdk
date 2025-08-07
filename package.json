@@ -9,7 +9,8 @@
     "nanda-sdk": "dist/index.js"
   },
   "scripts": {
-    "build": "tsc && sed -i '1i #!/usr/bin/env node' dist/index.js",
+    "build": "tsc",
+    "postbuild": "node scripts/add-shebang.js",
     "test": "jest",
     "lint": "eslint 'src/**/*.ts'",
     "prepare": "npm run build"
