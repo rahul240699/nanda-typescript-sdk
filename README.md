@@ -5,9 +5,10 @@
 ```bash
 # SSH into the servers
 # Ubuntu/Debian:
-sudo apt update && sudo apt install -y nodejs npm
+sudo apt update && sudo apt install -y nodejs npm git ansible
 # RHEL/CentOS/Fedora (Amazon Linux):
-sudo yum install -y nodejs npm git
+sudo yum install -y nodejs npm git ansible
+sudo amazon-linux-extras enable ansible2
 
 # Install the NANDA SDK globally
 git clone https://github.com/rahul240699/nanda-typescript-sdk.git

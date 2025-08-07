@@ -116,7 +116,7 @@ registry_url=${this.registryUrl}
       const yamlPath = path.join(groupVarsDir, 'all.yml');
       await fs.writeFile(yamlPath, yaml.dump(vars), 'utf8');
 
-      const playbook = path.join(__dirname, 'ansible', 'playbook.yml');
+      const playbook = path.join(__dirname, '..', 'ansible', 'playbook.yml');
       const verboseFlag = verbose ? '-vvv' : '';
       const cmd = `ansible-playbook -i ${inventoryPath} ${playbook} ${verboseFlag}`;
       console.info(`Running: ${cmd}`);
