@@ -1,17 +1,15 @@
 #!/usr/bin/env node
-//
-// Prepend a shebang to dist/index.js if it's not already there.
-//
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+// Postbuild script to ensure dist/index.js begins with the correct shebang
+const fs = require('fs');
 const file = './dist/index.js';
 const shebang = '#!/usr/bin/env node\n';
 
-if (!existsSync(file)) {
-  console.error(`Error: ${file} not found. Run tsc first.`);
+try {
+  let content = fs.readFileSync(file, 'utf8');
+  if (!content.startsWith(shebang)) {
+    fs.writeFileSync(file, shebang + content, 'utf8');
+  }
+} catch (err) {
+  console.error(`Error prepending shebang to ${file}:`, err);
   process.exit(1);
-}
-
-let content = readFileSync(file, 'utf8');
-if (!content.startsWith(shebang)) {
-  writeFileSync(file, shebang + content, 'utf8');
 }
