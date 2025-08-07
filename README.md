@@ -21,6 +21,8 @@ npm run build
 
 sudo npm link         # registers the `bin` from package.json globally
 
+chmod +x ./dist/index.js
+
 # Verify CLI is registered
 nanda-sdk --help
 ```
