@@ -10,18 +10,17 @@ EnvironmentFile=/etc/internet_of_agents.env
 
 ExecStart=/bin/bash -lc "\
   source /etc/internet_of_agents.env && \
-  # start the bridge:
-  exec python3 /opt/internet_of_agents/agents/agent_bridge.py & \
-  # then start the UI with registry + cert/key:
-  exec python3 -u /opt/internet_of_agents/agents/run_ui_agent_https.py \
+  python3 -u /opt/internet_of_agents/agents/run_ui_agent_https.py \
     --id agents${AGENT_ID_PREFIX} \
     --port 6000 \
     --api-port 6001 \
     --public-url http://${PUBLIC_IP}:6000 \
     --api-url https://${DOMAIN_NAME}:6001 \
     --registry ${REGISTRY_URL} \
-    --ssl-cert /etc/letsencrypt/live/${DOMAIN_NAME}/fullchain.pem \
-    --key /etc/letsencrypt/live/${DOMAIN_NAME}/privkey.pem"
+    --cert /etc/letsencrypt/live/${DOMAIN_NAME}/fullchain.pem \
+    --key  /etc/letsencrypt/live/${DOMAIN_NAME}/privkey.pem \
+    --ssl & \
+  exec python3 /opt/internet_of_agents/agents/agent_bridge.py"
 
 
 [Install]
