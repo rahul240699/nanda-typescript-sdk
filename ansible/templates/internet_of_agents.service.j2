@@ -6,7 +6,7 @@ After=network.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-KillMode=none
+KillMode=control-group
 EnvironmentFile=/etc/internet_of_agents.env
 ExecStart=/bin/bash -lc "source /etc/internet_of_agents.env && /opt/internet_of_agents/agents/start_running_agents.sh"
 
