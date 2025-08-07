@@ -4,12 +4,10 @@ Description=Internet of Agents Service
 After=network.target
 
 [Service]
-Type=simple
+Type=oneshot
+RemainAfterExit=yes
 EnvironmentFile=/etc/internet_of_agents.env
-ExecStart=/bin/bash -lc "source /etc/internet_of_agents.env && exec $VENV_PATH/bin/python /opt/internet_of_agents/agents/run_ui_agent_https.py --port 6000 --api-port 6001 --public-url http://$PUBLIC_IP:6000 --api-url https://$DOMAIN:6001"
-Restart=always
-User=root
-WorkingDirectory=/opt/internet_of_agents
+ExecStart=/bin/bash -lc "source /etc/internet_of_agents.env && /opt/internet_of_agents/agents/start_running_agents.sh"
 
 [Install]
 WantedBy=multi-user.target
