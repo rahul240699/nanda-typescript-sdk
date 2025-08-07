@@ -9,7 +9,7 @@
     "nanda-sdk": "dist/index.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && sed -i '1s;^;#!/usr/bin/env node\n;' dist/index.js",
     "test": "jest",
     "lint": "eslint 'src/**/*.ts'",
     "prepare": "npm run build"

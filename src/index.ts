@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import axios from 'axios';
 import { randomInt } from 'crypto';
 import * as fs from 'fs/promises';
