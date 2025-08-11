@@ -53,6 +53,25 @@ chmod +x ./dist/index.js
 nanda-sdk --help
 ```
 
+## Spin up an agent
+
+```bash
+# Setup with a random agent ID
+nanda-sdk --anthropic-key <your_anthropic_api_key> --domain <myapp.example.com>
+
+# Setup with a specific agent ID
+nanda-sdk --anthropic-key <your_anthropic_api_key> --domain <myapp.example.com> --agent-id 123456
+
+# Setup with multiple agents
+nanda-sdk --anthropic-key <your_anthropic_api_key> --domain <myapp.example.com> --num-agents 3
+
+# Setup with your own smithery key (allows access to Smithery MCP servers)
+nanda-sdk --anthropic-key <your_anthropic_api_key> --domain <myapp.example.com> --smithery-key <your_smithery_api_key>
+
+# Setup with your own registry
+nanda-sdk --anthropic-key <your_anthropic_api_key> --domain <myapp.example.com> --registry-url <https://your-domain.com>
+```
+
 ## Verify Installation
 
 After setup completes, verify your agent is running:
