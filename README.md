@@ -2,6 +2,31 @@
 
 The **NANDA Typescript SDK Node** package is a TypeScript-first SDK and CLI for the NANDA Base Agent. It provides a simple, type-safe API to spin up, manage, and communicate with your agents, plus an Ansible-driven server provisioning workflow. Use it to embed AI assistants in web apps, serverless functions, Node.js microservices, or custom CLI tools—all with zero boilerplate and full end-to-end automation.
 
+## Setup Prerequisites
+
+Before running the SDK, make sure you have the following:
+
+### 1. AWS Account with a Running EC2 Linux Instance
+
+Create an AWS account: https://aws.amazon.com
+Launch an EC2 instance (any Linux distro, e.g., Amazon Linux, Ubuntu, Debian)
+Allow the following ports in the security group:
+22 (SSH), 80 (HTTP), 443 (HTTPS), 3000, 5001, 6000-6200, 8080, 6900
+Save your .pem key file during instance creation — you'll need it to SSH.
+
+### 2. Domain or Subdomain with A Record
+
+Register a domain (or use a subdomain) via Namecheap, GoDaddy, etc.
+In your domain registrar's DNS settings, create an A Record pointing to your EC2 instance's public IPv4 address.
+For root domains, use @ as the host.
+For subdomains, use something like agent.yourdomain.com.
+
+### 3. Anthropic API Key
+
+Sign up and request your API key from: https://www.anthropic.com
+
+Once all the above is ready, proceed with installing and running the SDK below.
+
 ## Pre-requisites
 
 ```bash
