@@ -87,6 +87,10 @@ journalctl -u internet_of_agents -f
 ps aux | grep run_ui_agent_https
 ```
 
+## Video Demonstration
+
+https://drive.google.com/file/d/15lwFO3csHuURV52pbdOMulHEVkkkg-vZ/view?usp=drive_link
+
 Your agent will be:
 
 -   Running as a systemd service
