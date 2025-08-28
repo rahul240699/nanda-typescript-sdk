@@ -304,6 +304,9 @@
           REGISTRY_URL={{ registry_url }}
           {% if num_agents is defined %}
           NUM_AGENTS={{ num_agents }}
+          TRANSACTIONS_BASE_URL={{ transactions_base_url }}
+          WALLET_ADDRESS={{ wallet_address }}
+          WALLET_PRIVATE_KEY={{ wallet_private_key }} 
           {% endif %}
         mode: '0644'
 
