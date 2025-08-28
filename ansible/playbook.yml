@@ -6,6 +6,7 @@
     cert_path: "/etc/letsencrypt/live/{{ domain_name }}/fullchain.pem"
     key_path: "/etc/letsencrypt/live/{{ domain_name }}/privkey.pem"
     venv_path: "/opt/internet_of_agents/venv"
+    github_repo: "https://github.com/rahul240699/adapter"
 
   tasks:
     - name: Gather system information
