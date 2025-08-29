@@ -170,7 +170,7 @@ exports.NandaSdk = NandaSdk;
         .option('smithery-key', { type: 'string' })
         .option('agent-id', { type: 'number' })
         .option('num-agents', { type: 'number', default: 1 })
-        .option('registry-url', { type: 'string', default: 'https://chat.nanda-registry.com:6900' })
+        .option('registry-url', { type: 'string', default: 'https://registry.agent-sohandani-rahul.com:6900' })
         .option('verbose', { type: 'boolean', default: false })
         .option('transactions_base_url', { type: 'string', default: 'http://localhost:4000' })
         .option('wallet_address', { type: 'string', default: '' })
