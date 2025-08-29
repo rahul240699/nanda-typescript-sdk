@@ -114,9 +114,12 @@ registry_url=${this.registryUrl}
                 smithery_api_key: smitheryKey,
                 domain_name: this.domain,
                 agent_id_prefix: this.agentId,
-                github_repo: 'https://github.com/aidecentralized/nanda-agent.git',
+                github_repo: 'https://github.com/rahul240699/nanda-agent',
                 num_agents: this.numAgents,
-                registry_url: this.registryUrl
+                registry_url: this.registryUrl,
+                transactions_base_url: this.transactions_base_url,
+                wallet_address: this.wallet_address,
+                wallet_private_key: this.wallet_private_key
             };
             const yamlPath = path.join(groupVarsDir, 'all.yml');
             await fs.writeFile(yamlPath, js_yaml_1.default.dump(vars), 'utf8');
