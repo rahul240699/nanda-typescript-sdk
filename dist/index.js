@@ -86,7 +86,7 @@ ansible_connection=local
 ansible_python_interpreter=/usr/bin/python3
 domain_name=${this.domain}
 agent_id_prefix=${this.agentId}
-github_repo=https://github.com/aidecentralized/nanda-agent.git
+github_repo=https://github.com/rahul240699/nanda-agent
 registry_url=${this.registryUrl}
 `;
         const filePath = path.join(os.tmpdir(), 'ioa_inventory.ini');
