@@ -281,6 +281,24 @@
         path: /root/.bashrc
         line: 'export SMITHERY_API_KEY="{{ smithery_api_key }}"'
         state: present
+    
+    - name: Add Transaction Base URL to .bashrc
+      lineinfile:
+        path: /root/.bashrc
+        line: 'export TRANSACTIONS_BASE_URL="{{ transactions_base_url }}"'
+        state: present
+    
+    - name: Add Wallet Address key to .bashrc
+      lineinfile:
+        path: /root/.bashrc
+        line: 'export WALLET_ADDRESS="{{ wallet_address }}"'
+        state: present
+
+    - name: Add Wallet Private Key to .bashrc
+      lineinfile:
+        path: /root/.bashrc
+        line: 'export WALLET_PRIVATE_KEY="{{ wallet_private_key }}"'
+        state: present
 
     - name: Add virtual environment activation to .bashrc
       lineinfile:
