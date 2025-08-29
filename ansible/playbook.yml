@@ -284,19 +284,19 @@
     - name: Add Transaction Base URL to .bashrc
       lineinfile:
         path: /root/.bashrc
-        line: 'export TRANSACTIONS_BASE_URL="{{ transactions_base_url }}"'
+        line: 'export TRANSACTIONS_BASE_URL="{{ transactions_base_url | default("") }}"'
         state: present
     
     - name: Add Wallet Address key to .bashrc
       lineinfile:
         path: /root/.bashrc
-        line: 'export WALLET_ADDRESS="{{ wallet_address }}"'
+        line: 'export WALLET_ADDRESS="{{ wallet_address | default("") }}"'
         state: present
 
     - name: Add Wallet Private Key to .bashrc
       lineinfile:
         path: /root/.bashrc
-        line: 'export WALLET_PRIVATE_KEY="{{ wallet_private_key }}"'
+        line: 'export WALLET_PRIVATE_KEY="{{ wallet_private_key | default("") }}"'
         state: present
 
     - name: Add virtual environment activation to .bashrc
@@ -320,12 +320,10 @@
           DOMAIN_NAME={{ domain_name }}
           SMITHERY_API_KEY={{ smithery_api_key }}
           REGISTRY_URL={{ registry_url }}
-          {% if num_agents is defined %}
-          NUM_AGENTS={{ num_agents }}
-          TRANSACTIONS_BASE_URL={{ transactions_base_url }}
-          WALLET_ADDRESS={{ wallet_address }}
-          WALLET_PRIVATE_KEY={{ wallet_private_key }} 
-          {% endif %}
+          NUM_AGENTS={{ num_agents | default(1) }}
+          TRANSACTIONS_BASE_URL={{ transactions_base_url | default("") }}
+          WALLET_ADDRESS={{ wallet_address | default("") }}
+          WALLET_PRIVATE_KEY={{ wallet_private_key | default("") }}
         mode: '0644'
 
     - name: Create systemd service for internet_of_agents
