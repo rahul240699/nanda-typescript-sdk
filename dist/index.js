@@ -172,6 +172,9 @@ exports.NandaSdk = NandaSdk;
         .option('num-agents', { type: 'number', default: 1 })
         .option('registry-url', { type: 'string', default: 'https://chat.nanda-registry.com:6900' })
         .option('verbose', { type: 'boolean', default: false })
+        .option('transactions-base-url', { type: 'string', default: 'http://localhost:4000' })
+        .option('wallet-address', { type: 'string', default: '' })
+        .option('wallet-private-key', { type: 'string', default: '' })
         .parse();
     const smitheryKey = argv['smithery-key'] ?? 'b4e92d35-0034-43f0-beff-042466777ada';
     const sdk = new NandaSdk({
